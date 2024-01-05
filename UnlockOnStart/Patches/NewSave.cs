@@ -25,41 +25,9 @@ namespace UnlockOnStart
         var unlockableName = unlockable.unlockableName;
         var unlockableID = unlockablesList.IndexOf(unlockable);
 
-        // Plugin.logger.LogDebug($"Unlockable ID: {unlockableID}");
-        // Plugin.logger.LogDebug($"Unlockable name: {unlockableName}");
-
-        if (Unlockables.ShipUpgradesDictionary.ContainsKey(unlockableName))
-        {
-
-          if (Unlockables.ShipUpgradesDictionary[unlockableName] == false)
-          {
-            continue;
-          }
-
-          Unlockables.ShipUpgradesDictionary.TryGetValue(unlockableName, out bool value);
-          Plugin.logger.LogInfo($"Unlocking {unlockableName}.");
-
-          unlockShipItem(StartOfRound.Instance, unlockableID, unlockableName);
-
-        }
-        else if (Unlockables.SuitDictionary.ContainsKey(unlockableName))
-        {
-          if (Unlockables.SuitDictionary[unlockableName] == false)
-          {
-            continue;
-          }
-
-          Unlockables.SuitDictionary.TryGetValue(unlockableName, out bool value);
-          Plugin.logger.LogInfo($"Unlocking {unlockableName}.");
-
-          unlockShipItem(StartOfRound.Instance, unlockableID, unlockableName);
-
-        }
-        else
-        {
-          if (ConfigManager.Debug.Value) Plugin.logger.LogDebug($"Unlockable {unlockableName} not found in config.");
-        }
-
+        checkInDictionary(Unlockables.ShipUpgradesDictionary, unlockableID, unlockableName);
+        checkInDictionary(Unlockables.SuitDictionary, unlockableID, unlockableName);
+        checkInDictionary(Unlockables.DecorationDictionary, unlockableID, unlockableName);
       }
 
       SpawnItemsFromConfig();
@@ -86,7 +54,7 @@ namespace UnlockOnStart
             continue;
           }
 
-          Plugin.logger.LogInfo($"Unlocking {itemName}.");
+          Plugin.logger.LogInfo($"Unlocking {itemName} * {Unlockables.ItemsDictionary[itemName]}.");
 
           for (int i = 0; i < Unlockables.ItemsDictionary[itemName]; i++)
           {
@@ -117,11 +85,24 @@ namespace UnlockOnStart
         }
         else
         {
-          if (ConfigManager.Debug.Value) Plugin.logger.LogDebug($"Unlockable {itemName} not found in config.");
+          if (ConfigManager.Debug.Value) Plugin.logger.LogDebug($"Unlockable |{itemName}| not found in config.");
         }
 
 
       }
+    }
+
+    private static void checkInDictionary(Dictionary<string, bool> dictionary, int unlockableID, string itemName)
+    {
+      if (dictionary.ContainsKey(itemName))
+      {
+
+        if (dictionary[itemName] == false) return;
+
+        Plugin.logger.LogInfo($"Unlocking {itemName}.");
+        unlockShipItem(StartOfRound.Instance, unlockableID, itemName);
+      }
+
     }
 
 
