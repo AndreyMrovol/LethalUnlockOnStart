@@ -18,6 +18,20 @@ namespace UnlockOnStart
       {"Pajama suit", ConfigManager.Suits.Value},
     };
 
+    public static Dictionary<string, bool> DecorationDictionary = new(){
+      {"Cozy lights", ConfigManager.CozyLights.Value},
+      {"Television", ConfigManager.Television.Value},
+      {"Toilet", ConfigManager.Toilet.Value},
+      {"Shower", ConfigManager.Shower.Value},
+      {"Record player", ConfigManager.RecordPlayer.Value},
+      {"Table", ConfigManager.Table.Value},
+      {"Romantic table", ConfigManager.RomanticTable.Value},
+      {"JackOLantern", ConfigManager.JackOLantern.Value},
+      {"Welcome mat", ConfigManager.WelcomeMat.Value},
+      {"Goldfish", ConfigManager.Goldfish.Value},
+      {"Plushie pajama", ConfigManager.PlushiePajama.Value}
+    };
+
     public static Dictionary<string, int> ItemsDictionary = new(){
         {"Flashlight", ConfigManager.Flashlights.Value},
         {"Pro-flashlight", ConfigManager.ProFlashlights.Value},
