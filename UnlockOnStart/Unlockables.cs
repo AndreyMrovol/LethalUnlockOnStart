@@ -43,6 +43,12 @@ namespace UnlockOnStart
         {"Shovel", ConfigManager.Shovels.Value},
         {"Stun grenade", ConfigManager.StunGrenades.Value},
         {"Zap gun", ConfigManager.ZapGuns.Value},
+
+        {"Shotgun", ConfigManager.Shotgun.Value},
+        {"Shotgun shells", ConfigManager.ShotgunShells.Value},
+
+        {"Jetpack", ConfigManager.Jetpacks.Value},
+        {"TZP-Inhalant", ConfigManager.Inhalants.Value},
     };
 
   }

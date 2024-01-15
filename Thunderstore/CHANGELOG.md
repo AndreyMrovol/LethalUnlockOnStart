@@ -14,3 +14,9 @@ Initial release
 # 0.1.2
 
 - hopefully fixed decorations patching properly
+
+# 0.2.0
+
+### Please regenerate your config file!
+
+- changed which method to patch, should resolve issues with IntroTweaks

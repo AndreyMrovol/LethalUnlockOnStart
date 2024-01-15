@@ -11,10 +11,21 @@ namespace UnlockOnStart
   [HarmonyPatch(typeof(StartOfRound))]
   internal class NewSaveStartPatch
   {
-    [HarmonyPatch("firstDayAnimation")]
+    [HarmonyPatch("LoadShipGrabbableItems")]
     [HarmonyPrefix]
     internal static void LoadUnlockablesFromConfig()
     {
+
+      if (StartOfRound.Instance.gameStats.daysSpent == 0 && !StartOfRound.Instance.isChallengeFile)
+      {
+        Plugin.logger.LogInfo("New save detected, loading unlockables from config.");
+      }
+      else
+      {
+        Plugin.logger.LogInfo("Not a new save, not loading unlockables from config.");
+        return;
+      }
+
       // check if the player is a host, if not return
       if (!GameNetworkManager.Instance.isHostingGame) return;
 
