@@ -11,8 +11,8 @@ namespace UnlockOnStart
   [HarmonyPatch(typeof(StartOfRound))]
   internal class NewSaveStartPatch
   {
-    [HarmonyPatch("LoadShipGrabbableItems")]
-    [HarmonyPrefix]
+    [HarmonyPatch("firstDayAnimation")]
+    [HarmonyPostfix]
     internal static void LoadUnlockablesFromConfig()
     {
 
