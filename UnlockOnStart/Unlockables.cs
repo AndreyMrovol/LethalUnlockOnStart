@@ -6,49 +6,49 @@ namespace UnlockOnStart
   public class Unlockables
   {
     public static Dictionary<string, bool> ShipUpgradesDictionary = new(){
-        {"Teleporter", ConfigManager.Teleporter.Value},
-        {"Inverse Teleporter", ConfigManager.InverseTeleporter.Value},
-        {"Loud horn", ConfigManager.LoudHorn.Value},
-        {"Signal translator", ConfigManager.SignalTranslator.Value},
+        {"Teleporter", ShipUpgradesConfigManager.Teleporter.Value},
+        {"Inverse Teleporter", ShipUpgradesConfigManager.InverseTeleporter.Value},
+        {"Loud horn", ShipUpgradesConfigManager.LoudHorn.Value},
+        {"Signal translator", ShipUpgradesConfigManager.SignalTranslator.Value},
     };
 
     public static Dictionary<string, bool> SuitDictionary = new(){
-      {"Green suit", ConfigManager.Suits.Value},
-      {"Hazard suit", ConfigManager.Suits.Value},
-      {"Pajama suit", ConfigManager.Suits.Value},
+      {"Green suit", DecorationsConfigManager.Suits.Value},
+      {"Hazard suit", DecorationsConfigManager.Suits.Value},
+      {"Pajama suit", DecorationsConfigManager.Suits.Value},
     };
 
     public static Dictionary<string, bool> DecorationDictionary = new(){
-      {"Cozy lights", ConfigManager.CozyLights.Value},
-      {"Television", ConfigManager.Television.Value},
-      {"Toilet", ConfigManager.Toilet.Value},
-      {"Shower", ConfigManager.Shower.Value},
-      {"Record player", ConfigManager.RecordPlayer.Value},
-      {"Table", ConfigManager.Table.Value},
-      {"Romantic table", ConfigManager.RomanticTable.Value},
-      {"JackOLantern", ConfigManager.JackOLantern.Value},
-      {"Welcome mat", ConfigManager.WelcomeMat.Value},
-      {"Goldfish", ConfigManager.Goldfish.Value},
-      {"Plushie pajama", ConfigManager.PlushiePajama.Value}
+      {"Cozy lights", DecorationsConfigManager.CozyLights.Value},
+      {"Television", DecorationsConfigManager.Television.Value},
+      {"Toilet", DecorationsConfigManager.Toilet.Value},
+      {"Shower", DecorationsConfigManager.Shower.Value},
+      {"Record player", DecorationsConfigManager.RecordPlayer.Value},
+      {"Table", DecorationsConfigManager.Table.Value},
+      {"Romantic table", DecorationsConfigManager.RomanticTable.Value},
+      {"JackOLantern", DecorationsConfigManager.JackOLantern.Value},
+      {"Welcome mat", DecorationsConfigManager.WelcomeMat.Value},
+      {"Goldfish", DecorationsConfigManager.Goldfish.Value},
+      {"Plushie pajama", DecorationsConfigManager.PlushiePajama.Value}
     };
 
     public static Dictionary<string, int> ItemsDictionary = new(){
-        {"Flashlight", ConfigManager.Flashlights.Value},
-        {"Pro-flashlight", ConfigManager.ProFlashlights.Value},
-        {"Walkie-talkie", ConfigManager.WalkieTalkies.Value},
-        {"Lockpicker", ConfigManager.LockPickers.Value},
-        {"Extension ladder", ConfigManager.ExtensionLadders.Value},
-        {"Radar-booster", ConfigManager.RadarBoosters.Value},
-        {"Spray paint", ConfigManager.SprayPaints.Value},
-        {"Shovel", ConfigManager.Shovels.Value},
-        {"Stun grenade", ConfigManager.StunGrenades.Value},
-        {"Zap gun", ConfigManager.ZapGuns.Value},
+        {"Flashlight", ItemsConfigManager.Flashlights.Value},
+        {"Pro-flashlight", ItemsConfigManager.ProFlashlights.Value},
+        {"Walkie-talkie", ItemsConfigManager.WalkieTalkies.Value},
+        {"Lockpicker", ItemsConfigManager.LockPickers.Value},
+        {"Extension ladder", ItemsConfigManager.ExtensionLadders.Value},
+        {"Radar-booster", ItemsConfigManager.RadarBoosters.Value},
+        {"Spray paint", ItemsConfigManager.SprayPaints.Value},
+        {"Shovel", ItemsConfigManager.Shovels.Value},
+        {"Stun grenade", ItemsConfigManager.StunGrenades.Value},
+        {"Zap gun", ItemsConfigManager.ZapGuns.Value},
 
-        {"Shotgun", ConfigManager.Shotgun.Value},
-        {"Shotgun shells", ConfigManager.ShotgunShells.Value},
+        {"Shotgun", ItemsConfigManager.Shotgun.Value},
+        {"Ammo", ItemsConfigManager.ShotgunShells.Value},
 
-        {"Jetpack", ConfigManager.Jetpacks.Value},
-        {"TZP-Inhalant", ConfigManager.Inhalants.Value},
+        {"Jetpack", ItemsConfigManager.Jetpacks.Value},
+        {"TZP-Inhalant", ItemsConfigManager.Inhalants.Value},
     };
 
   }
