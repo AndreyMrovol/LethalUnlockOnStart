@@ -20,3 +20,18 @@ Initial release
 ### Please regenerate your config file!
 
 - changed which method to patch, should resolve issues with IntroTweaks
+
+# 0.2.1
+
+- fixed an issue where items would not spawn after getting fired
+
+# 0.3.0
+
+### Please regenerate your config file!
+
+- configs are now separated into 3 files: Items, Ship upgrades and Decorations
+- fixed an issue with shotgun shells not spawning
+
+# 0.3.1
+
+- fixed plushie man not unlocking (thanks, [Re-VelatoR](https://github.com/Re-VelatoR))

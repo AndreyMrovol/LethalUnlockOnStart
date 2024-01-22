@@ -3,8 +3,8 @@
     <PropertyGroup>
         <TargetFramework>net46</TargetFramework>
         <AssemblyName>UnlockOnStart</AssemblyName>
-        <Description>Discord Rich Presence support in the game.</Description>
-        <Version>0.0.1</Version>
+        <Description>Set stuff to unlock on a new save.</Description>
+        <Version>0.3.1</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
@@ -20,18 +20,5 @@
 
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <!-- Edit [steampath] to your steamapps folder location -->
-        <Reference Include="UnityEngine">
-            <HintPath>V:\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll</HintPath> 
-        </Reference>
-        <Reference Include="Unity.Netcode.Runtime">
-            <HintPath>V:\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
-        </Reference>
-        <Reference Include="Steamworks.Data.Lobby">
-            <HintPath>V:\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
-        </Reference>
     </ItemGroup>
 </Project>

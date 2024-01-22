@@ -20,7 +20,7 @@ This mod gives you the ability to start game with:
 - Signal translator
 - Green, hazmat and pajama suits
 
-You can also configure how many items to spawn:
+You can also configure how many items to spawn (including, but not limited to):
 
 - Flashlights
 - Pro-flashlights
@@ -32,6 +32,8 @@ You can also configure how many items to spawn:
 - Shovels
 - Stun grenades
 - Zap guns
+
+and which decorations to unlock.
 
 ## Configuration
 
