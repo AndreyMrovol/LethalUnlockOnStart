@@ -29,7 +29,7 @@ namespace UnlockOnStart
       {"JackOLantern", DecorationsConfigManager.JackOLantern.Value},
       {"Welcome mat", DecorationsConfigManager.WelcomeMat.Value},
       {"Goldfish", DecorationsConfigManager.Goldfish.Value},
-      {"Plushie pajama", DecorationsConfigManager.PlushiePajama.Value}
+      {"Plushie pajama man", DecorationsConfigManager.PlushiePajama.Value}
     };
 
     public static Dictionary<string, int> ItemsDictionary = new(){
