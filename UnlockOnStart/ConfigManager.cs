@@ -15,9 +15,13 @@ public class ConfigManager
   }
 
   public static ConfigEntry<bool> Debug { get; private set; }
+  public static ConfigEntry<int> Money { get; private set; }
 
   private ConfigManager(ConfigFile config)
   {
-    Debug = config.Bind("Debug", "Debugging", true, "Enable debug logging.");
+    Debug = config.Bind("General", "Debugging", true, "Enable debug logging.");
+
+
+    Money = config.Bind("Money", "Money", 60, "How much money to unlock on new save.");
   }
 }

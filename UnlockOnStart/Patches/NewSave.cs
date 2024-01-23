@@ -26,6 +26,8 @@ namespace UnlockOnStart
         return;
       }
 
+      TimeOfDay.Instance.quotaVariables.startingCredits = ConfigManager.Money.Value;
+
       // check if the player is a host, if not return
       if (!GameNetworkManager.Instance.isHostingGame) return;
 
