@@ -15,10 +15,10 @@ namespace UnlockOnStart
         private void Awake()
         {
 
-            ShipUpgradesConfigManager.Init(new ConfigFile(Path.Combine(Paths.ConfigPath, "UnlockOnStart/ShipUpgrades.cfg"), true));
-            DecorationsConfigManager.Init(new ConfigFile(Path.Combine(Paths.ConfigPath, "UnlockOnStart/Decorations.cfg"), true));
-            ItemsConfigManager.Init(new ConfigFile(Path.Combine(Paths.ConfigPath, "UnlockOnStart/Items.cfg"), true));
-            ConfigManager.Init(new ConfigFile(Path.Combine(Paths.ConfigPath, "UnlockOnStart/General.cfg"), true));
+            ConfigManager.Init(Config);
+            ShipUpgradesConfigManager.Init(Config);
+            ItemsConfigManager.Init(Config);
+            DecorationsConfigManager.Init(Config);
 
             logger = Logger;
             harmony.PatchAll();

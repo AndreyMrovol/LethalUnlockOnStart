@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BepInEx.Configuration;
-
 namespace UnlockOnStart;
 
 public class ItemsConfigManager
@@ -38,25 +37,20 @@ public class ItemsConfigManager
 
   private ItemsConfigManager(ConfigFile config)
   {
-
-    Flashlights = config.Bind("Flashlight", "Flashlight", 0, "How many flashlights to unlock on new save.");
-    ProFlashlights = config.Bind("Pro-flashlight", "Pro-flashlight", 0, "How many pro-flashlights to unlock on new save.");
-
-    WalkieTalkies = config.Bind("Walkie-Talkie", "Walkie-Talkie", 0, "How many walkie-talkies to unlock on new save.");
-    LockPickers = config.Bind("Lockpicker", "Lockpicker", 0, "How many lockpickers to unlock on new save.");
-    ExtensionLadders = config.Bind("Extension Ladder", "Extension Ladder", 0, "How many extension ladders to unlock on new save.");
-    RadarBoosters = config.Bind("Radar Booster", "Radar Booster", 0, "How many radar boosters to unlock on new save.");
-    SprayPaints = config.Bind("Spray Paint", "Spray Paint", 0, "How many spray paints to unlock on new save.");
-    Jetpacks = config.Bind("Jetpack", "Jetpack", 0, "How many jetpacks to unlock on new save.");
-
-    Inhalants = config.Bind("TZP-Inhalant", "TZP-Inhalant", 0, "How many inhalants to unlock on new save.");
-
-    Shovels = config.Bind("Shovel", "Shovel", 0, "How many shovels to unlock on new save.");
-    StunGrenades = config.Bind("Stun Grenade", "Stun Grenade", 0, "How many stun grenades to unlock on new save.");
-    ZapGuns = config.Bind("Zap Gun", "Zap Gun", 0, "How many zap guns to unlock on new save.");
-    Shotgun = config.Bind("Shotgun", "Shotgun", 0, "How many shotguns to unlock on new save.");
-    ShotgunShells = config.Bind("Ammo", "Shotgun Shells", 0, "How many shotgun shells to unlock on new save.");
-
+    ExtensionLadders = config.Bind("Items", "Extension Ladder", 0, "How many extension ladders to unlock on new save.");
+    Flashlights = config.Bind("Items", "Flashlight", 0, "How many flashlights to unlock on new save.");
+    Inhalants = config.Bind("Items", "TZP-Inhalant", 0, "How many inhalants to unlock on new save.");
+    Jetpacks = config.Bind("Items", "Jetpack", 0, "How many jetpacks to unlock on new save.");
+    LockPickers = config.Bind("Items", "Lockpicker", 0, "How many lockpickers to unlock on new save.");
+    ProFlashlights = config.Bind("Items", "Pro-flashlight", 0, "How many pro-flashlights to unlock on new save.");
+    RadarBoosters = config.Bind("Items", "Radar Booster", 0, "How many radar boosters to unlock on new save.");
+    Shotgun = config.Bind("Items", "Shotgun", 0, "How many shotguns to unlock on new save.");
+    ShotgunShells = config.Bind("Items", "Shotgun Shells", 0, "How many shotgun shells to unlock on new save.");
+    Shovels = config.Bind("Items", "Shovel", 0, "How many shovels to unlock on new save.");
+    SprayPaints = config.Bind("Items", "Spray Paint", 0, "How many spray paints to unlock on new save.");
+    StunGrenades = config.Bind("Items", "Stun Grenade", 0, "How many stun grenades to unlock on new save.");
+    WalkieTalkies = config.Bind("Items", "Walkie-Talkie", 0, "How many walkie-talkies to unlock on new save.");
+    ZapGuns = config.Bind("Items", "Zap Gun", 0, "How many zap guns to unlock on new save.");
   }
 
 }

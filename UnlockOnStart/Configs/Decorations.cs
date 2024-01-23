@@ -31,17 +31,17 @@ public class DecorationsConfigManager
 
   private DecorationsConfigManager(ConfigFile config)
   {
-    CozyLights = config.Bind("Cozy Lights", "Cozy Lights", false, "Unlock the cozy lights on new save.");
-    Television = config.Bind("Television", "Television", false, "Unlock the television on new save.");
-    Toilet = config.Bind("Toilet", "Toilet", false, "Unlock the toilet on new save.");
-    Shower = config.Bind("Shower", "Shower", false, "Unlock the shower on new save.");
-    RecordPlayer = config.Bind("Record Player", "Record Player", false, "Unlock the record player on new save.");
-    Table = config.Bind("Table", "Table", false, "Unlock the table on new save.");
-    RomanticTable = config.Bind("Romantic Table", "Romantic Table", false, "Unlock the romantic table on new save.");
-    JackOLantern = config.Bind("Jack-O-Lantern", "Jack-O-Lantern", false, "Unlock the jack-o-lantern on new save.");
-    WelcomeMat = config.Bind("Welcome Mat", "Welcome Mat", false, "Unlock the welcome mat on new save.");
-    Goldfish = config.Bind("Goldfish", "Goldfish", false, "Unlock the goldfish on new save.");
-    PlushiePajama = config.Bind("Plushie Pajama", "Plushie Pajama", false, "Unlock the plushie pajama on new save.");
+    CozyLights = config.Bind("Decorations", "Cozy Lights", false, "Unlock the cozy lights on new save.");
+    Goldfish = config.Bind("Decorations", "Goldfish", false, "Unlock the goldfish on new save.");
+    JackOLantern = config.Bind("Decorations", "Jack-O-Lantern", false, "Unlock the jack-o-lantern on new save.");
+    PlushiePajama = config.Bind("Decorations", "Plushie Pajama", false, "Unlock the plushie pajama on new save.");
+    RecordPlayer = config.Bind("Decorations", "Record Player", false, "Unlock the record player on new save.");
+    RomanticTable = config.Bind("Decorations", "Romantic Table", false, "Unlock the romantic table on new save.");
+    Shower = config.Bind("Decorations", "Shower", false, "Unlock the shower on new save.");
+    Table = config.Bind("Decorations", "Table", false, "Unlock the table on new save.");
+    Television = config.Bind("Decorations", "Television", false, "Unlock the television on new save.");
+    Toilet = config.Bind("Decorations", "Toilet", false, "Unlock the toilet on new save.");
+    WelcomeMat = config.Bind("Decorations", "Welcome Mat", false, "Unlock the welcome mat on new save.");
 
     Suits = config.Bind("Suits", "Suits", false, "Unlock all suits on new save.");
   }
