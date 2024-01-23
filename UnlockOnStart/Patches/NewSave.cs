@@ -81,6 +81,17 @@ namespace UnlockOnStart
             itemToSpawn.isInElevator = true;
             itemToSpawn.isInShipRoom = true;
 
+            if (itemName == "Shotgun")
+            {
+              // assert itemToSpawn to be ShotgunItem
+              ShotgunItem shotgunItem = itemToSpawn as ShotgunItem;
+
+              shotgunItem.shellsLoaded = 0;
+              shotgunItem.safetyOn = true;
+
+              itemToSpawn = shotgunItem;
+            }
+
             try
             {
               Plugin.logger.LogDebug($"Spawning {itemName} at {spawnPosition}.");
