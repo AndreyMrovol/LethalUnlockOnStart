@@ -35,3 +35,11 @@ Initial release
 # 0.3.1
 
 - fixed plushie man not unlocking (thanks, [Re-VelatoR](https://github.com/Re-VelatoR))
+
+# 0.4.0
+
+### Please regenerate your config file!
+
+- reverted change to config directory - now all settings are in one file again (LethalConfig compatibility)
+- added option to set up starting money
+- shotguns are spawned with 0 bullets and safety on (thanks, [Anonym-12321](https://github.com/Anonym-12321))
