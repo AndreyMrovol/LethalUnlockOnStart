@@ -17,8 +17,12 @@ public class ConfigManager
   public static ConfigEntry<bool> Debug { get; private set; }
   public static ConfigEntry<int> Money { get; private set; }
 
+  public static ConfigFile configFile { get; private set; }
+
   private ConfigManager(ConfigFile config)
   {
+    configFile = config;
+
     Debug = config.Bind("General", "Debugging", true, "Enable debug logging.");
 
 

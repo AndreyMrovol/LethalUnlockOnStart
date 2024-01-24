@@ -2,6 +2,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -38,9 +39,23 @@ namespace UnlockOnStart
         var unlockableName = unlockable.unlockableName;
         var unlockableID = unlockablesList.IndexOf(unlockable);
 
-        checkInDictionary(Unlockables.ShipUpgradesDictionary, unlockableID, unlockableName);
-        checkInDictionary(Unlockables.SuitDictionary, unlockableID, unlockableName);
-        checkInDictionary(Unlockables.DecorationDictionary, unlockableID, unlockableName);
+        if (ConfigManager.Debug.Value) Plugin.logger.LogDebug($"Unlockable ID: {unlockableID} / Unlockable name: {unlockableName}");
+
+        var shipUpgradeResult = CheckInDictionary(Unlockables.ShipUpgradesDictionary, unlockableID, unlockableName);
+        var suitResult = CheckInDictionary(Unlockables.SuitDictionary, unlockableID, unlockableName);
+        var DecorationResult = CheckInDictionary(Unlockables.DecorationDictionary, unlockableID, unlockableName);
+
+        if (shipUpgradeResult || suitResult || DecorationResult) continue;
+
+        if (!shipUpgradeResult && !suitResult && !DecorationResult)
+        {
+          if (ConfigManager.Debug.Value) Plugin.logger.LogDebug($"Unlockable |{unlockableName}| not found in config.");
+
+          if (Unlockables.ItemsToIgnore.Contains(unlockableName)) continue;
+
+          bool toUnlock = ConfigManager.configFile.Bind("Modded", unlockableName, false, $"Unlock {unlockableName} on new save.").Value;
+          if (toUnlock) UnlockShipItem(StartOfRound.Instance, unlockableID, unlockableName);
+        }
       }
 
       SpawnItemsFromConfig();
@@ -57,15 +72,16 @@ namespace UnlockOnStart
         var itemName = item.itemName;
         var itemID = allItemsList.IndexOf(item);
 
-        // Plugin.logger.LogDebug($"Item ID: {itemID} / Item name: {itemName}");
+        if (item.isScrap) continue;
+        if (Unlockables.ItemsToIgnore.Contains(itemName)) continue;
+
+        Plugin.logger.LogDebug($"Item ID: {itemID} / Item name: {itemName}");
+        Plugin.logger.LogDebug($"Is scrap: {item.isScrap} / Is conductive: {item.isConductiveMetal}");
 
         if (Unlockables.ItemsDictionary.ContainsKey(itemName))
         {
 
-          if (Unlockables.ItemsDictionary[itemName] == 0)
-          {
-            continue;
-          }
+          if (Unlockables.ItemsDictionary[itemName] == 0) continue;
 
           Plugin.logger.LogInfo($"Unlocking {itemName} * {Unlockables.ItemsDictionary[itemName]}.");
 
@@ -74,43 +90,48 @@ namespace UnlockOnStart
             SpawnItem(StartOfRound.Instance, item);
           }
 
-            try
-            {
-              Plugin.logger.LogDebug($"Spawning {itemName} at {spawnPosition}.");
-              itemToSpawn.NetworkObject.Spawn();
-
-            }
-            catch (Exception ex)
-            {
-              Plugin.logger.LogError($"Could not spawn {itemName}: {ex}");
-            }
-          }
-
         }
         else
         {
+
+          int howManyToUnlock = ConfigManager.configFile.Bind("Modded.Items", itemName, 0, $"How many {itemName} to unlock on new save.").Value;
+          if (howManyToUnlock == 0)
+          {
+            continue;
+          }
+          else
+          {
+            Plugin.logger.LogInfo($"Unlocking {itemName} * {howManyToUnlock}.");
+            for (int i = 0; i < howManyToUnlock; i++)
+            {
+              SpawnItem(StartOfRound.Instance, item);
+            }
+          }
+
           if (ConfigManager.Debug.Value) Plugin.logger.LogDebug($"Unlockable |{itemName}| not found in config.");
+
         }
 
 
       }
     }
 
-    private static void checkInDictionary(Dictionary<string, bool> dictionary, int unlockableID, string itemName)
+    private static bool CheckInDictionary(Dictionary<string, bool> dictionary, int unlockableID, string itemName)
     {
       if (dictionary.ContainsKey(itemName))
       {
-
-        if (dictionary[itemName] == false) return;
+        if (dictionary[itemName] == false) return true;
 
         Plugin.logger.LogInfo($"Unlocking {itemName}.");
-        unlockShipItem(StartOfRound.Instance, unlockableID, itemName);
+        UnlockShipItem(StartOfRound.Instance, unlockableID, itemName);
+        return true;
       }
 
+      return false;
     }
 
 
-    private static void unlockShipItem(StartOfRound instance, int unlockableID, string name)
+    private static void UnlockShipItem(StartOfRound instance, int unlockableID, string name)
     {
       try
       {
