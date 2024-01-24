@@ -71,28 +71,8 @@ namespace UnlockOnStart
 
           for (int i = 0; i < Unlockables.ItemsDictionary[itemName]; i++)
           {
-            Vector3 spawnPosition = StartOfRound.Instance.playerSpawnPositions[1].position;
-            spawnPosition.x += UnityEngine.Random.Range(-0.7f, 0.7f);
-            spawnPosition.z += UnityEngine.Random.Range(2f, 2f);
-            spawnPosition.y += 0.5f;
-
-            GrabbableObject itemToSpawn = UnityEngine.Object.Instantiate<GameObject>(item.spawnPrefab, spawnPosition, Quaternion.identity, StartOfRound.Instance.elevatorTransform).GetComponent<GrabbableObject>();
-            itemToSpawn.fallTime = 1f;
-            itemToSpawn.hasHitGround = false;
-            itemToSpawn.scrapPersistedThroughRounds = true;
-            itemToSpawn.isInElevator = true;
-            itemToSpawn.isInShipRoom = true;
-
-            if (itemName == "Shotgun")
-            {
-              // assert itemToSpawn to be ShotgunItem
-              ShotgunItem shotgunItem = itemToSpawn as ShotgunItem;
-
-              shotgunItem.shellsLoaded = 0;
-              shotgunItem.safetyOn = true;
-
-              itemToSpawn = shotgunItem;
-            }
+            SpawnItem(StartOfRound.Instance, item);
+          }
 
             try
             {
@@ -144,6 +124,46 @@ namespace UnlockOnStart
       {
         Plugin.logger.LogError($"Could not invoke UnlockShipObject method: {ex}");
       }
+    }
+
+    private static void SpawnItem(StartOfRound instance, Item item)
+    {
+
+      Vector3 spawnPosition = StartOfRound.Instance.playerSpawnPositions[1].position;
+      spawnPosition.x += UnityEngine.Random.Range(-0.7f, 0.7f);
+      spawnPosition.z += UnityEngine.Random.Range(2f, 2f);
+      spawnPosition.y += 0.5f;
+
+      GrabbableObject itemToSpawn = UnityEngine.Object.Instantiate<GameObject>(item.spawnPrefab, spawnPosition, Quaternion.identity, StartOfRound.Instance.elevatorTransform).GetComponent<GrabbableObject>();
+      itemToSpawn.fallTime = 1f;
+      itemToSpawn.hasHitGround = false;
+      itemToSpawn.scrapPersistedThroughRounds = true;
+      itemToSpawn.isInElevator = true;
+      itemToSpawn.isInShipRoom = true;
+
+      if (item.itemName == "Shotgun")
+      {
+        // assert itemToSpawn to be ShotgunItem
+        ShotgunItem shotgunItem = itemToSpawn as ShotgunItem;
+
+        shotgunItem.shellsLoaded = 0;
+        shotgunItem.safetyOn = true;
+
+        itemToSpawn = shotgunItem;
+      }
+
+      try
+      {
+        Plugin.logger.LogDebug($"Spawning {item.itemName} at {spawnPosition}.");
+        itemToSpawn.NetworkObject.Spawn();
+
+      }
+      catch (Exception ex)
+      {
+        Plugin.logger.LogError($"Could not spawn {item.itemName}: {ex}");
+      }
+
+
     }
 
 
