@@ -51,5 +51,18 @@ namespace UnlockOnStart
         {"TZP-Inhalant", ItemsConfigManager.Inhalants.Value},
     };
 
+    public static string[] ItemsToIgnore = [
+      "Binoculars",
+      "box",
+      "Key",
+      "Bunkbeds",
+      "Terminal",
+      "Cupboard",
+      "File Cabinet",
+      "Light switch",
+      "Orange suit",
+      "Purple suit"
+    ];
+
   }
 }
