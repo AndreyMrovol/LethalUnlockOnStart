@@ -34,6 +34,7 @@ You can also configure how many items to spawn (including, but not limited to):
 - Zap guns
 
 and which decorations to unlock.
+Now with modded items support!
 
 ## Configuration
 
@@ -46,6 +47,7 @@ This mod creates its config entries in **`BepInEx/config/UnlockOnStart.cfg`** fi
 - **Money** - money settings.
 - **Suits** - suits settings.
 - **Ship Upgrades** - ship upgrades settings.
+- **Modded/Modded items** - modded items/decorations.
 
 ## License
 
