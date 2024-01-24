@@ -13,9 +13,10 @@ namespace UnlockOnStart
     };
 
     public static Dictionary<string, bool> SuitDictionary = new(){
-      {"Green suit", DecorationsConfigManager.Suits.Value},
-      {"Hazard suit", DecorationsConfigManager.Suits.Value},
-      {"Pajama suit", DecorationsConfigManager.Suits.Value},
+      {"Green suit", DecorationsConfigManager.GreenSuit.Value},
+      {"Hazard suit", DecorationsConfigManager.HazardSuit.Value},
+      {"Pajama suit", DecorationsConfigManager.PajamaSuit.Value},
+      {"Purple Suit", DecorationsConfigManager.PurpleSuit.Value}
     };
 
     public static Dictionary<string, bool> DecorationDictionary = new(){
@@ -61,8 +62,7 @@ namespace UnlockOnStart
       "Cupboard",
       "File Cabinet",
       "Light switch",
-      "Orange suit",
-      "Purple suit"
+      "Orange suit"
     ];
 
   }

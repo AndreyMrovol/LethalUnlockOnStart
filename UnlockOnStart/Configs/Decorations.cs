@@ -27,7 +27,10 @@ public class DecorationsConfigManager
   public static ConfigEntry<bool> Goldfish { get; private set; }
   public static ConfigEntry<bool> PlushiePajama { get; private set; }
 
-  public static ConfigEntry<bool> Suits { get; private set; }
+  public static ConfigEntry<bool> HazardSuit { get; private set; }
+  public static ConfigEntry<bool> GreenSuit { get; private set; }
+  public static ConfigEntry<bool> PajamaSuit { get; private set; }
+  public static ConfigEntry<bool> PurpleSuit { get; private set; }
 
   private DecorationsConfigManager(ConfigFile config)
   {
@@ -43,7 +46,10 @@ public class DecorationsConfigManager
     Toilet = config.Bind("Decorations", "Toilet", false, "Unlock the toilet on new save.");
     WelcomeMat = config.Bind("Decorations", "Welcome Mat", false, "Unlock the welcome mat on new save.");
 
-    Suits = config.Bind("Suits", "Suits", false, "Unlock all suits on new save.");
+    HazardSuit = config.Bind("Suits", "Hazard Suit", false, "Unlock the hazmat suit on new save.");
+    GreenSuit = config.Bind("Suits", "Green Suit", false, "Unlock the green suit on new save.");
+    PajamaSuit = config.Bind("Suits", "Pajama Suit", false, "Unlock the pajama suit on new save.");
+    PurpleSuit = config.Bind("Suits", "Purple Suit", false, "Unlock the purple suit on new save.");
   }
 
 }
