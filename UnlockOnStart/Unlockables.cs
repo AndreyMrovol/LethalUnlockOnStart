@@ -49,6 +49,7 @@ namespace UnlockOnStart
 
         {"Jetpack", ItemsConfigManager.Jetpacks.Value},
         {"TZP-Inhalant", ItemsConfigManager.Inhalants.Value},
+        {"Boombox", ItemsConfigManager.Boombox.Value}
     };
 
     public static string[] ItemsToIgnore = [

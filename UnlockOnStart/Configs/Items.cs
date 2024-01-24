@@ -26,6 +26,7 @@ public class ItemsConfigManager
 
 
   public static ConfigEntry<int> Inhalants { get; private set; }
+  public static ConfigEntry<int> Boombox { get; private set; }
 
 
   public static ConfigEntry<int> Shovels { get; private set; }
@@ -37,6 +38,7 @@ public class ItemsConfigManager
 
   private ItemsConfigManager(ConfigFile config)
   {
+    Boombox = config.Bind("Items", "Boombox", 0, "How many boomboxes to unlock on new save.");
     ExtensionLadders = config.Bind("Items", "Extension Ladder", 0, "How many extension ladders to unlock on new save.");
     Flashlights = config.Bind("Items", "Flashlight", 0, "How many flashlights to unlock on new save.");
     Inhalants = config.Bind("Items", "TZP-Inhalant", 0, "How many inhalants to unlock on new save.");
