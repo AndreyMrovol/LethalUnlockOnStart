@@ -72,11 +72,13 @@ namespace UnlockOnStart
         var itemName = item.itemName;
         var itemID = allItemsList.IndexOf(item);
 
-        if (item.isScrap) continue;
+        Plugin.logger.LogDebug($"Item ID: {itemID} / Item name: {itemName}");
+        Plugin.logger.LogDebug($"Is scrap: {item.isScrap}");
+
+        // this is a quick and dirty patch, will definitely need to be improved in case of another scrap-tool item
+        if (item.isScrap && item.itemName != "Shotgun") continue;
         if (Unlockables.ItemsToIgnore.Contains(itemName)) continue;
 
-        Plugin.logger.LogDebug($"Item ID: {itemID} / Item name: {itemName}");
-        Plugin.logger.LogDebug($"Is scrap: {item.isScrap} / Is conductive: {item.isConductiveMetal}");
 
         if (Unlockables.ItemsDictionary.ContainsKey(itemName))
         {
