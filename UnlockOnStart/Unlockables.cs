@@ -47,6 +47,7 @@ namespace UnlockOnStart
 
         {"Shotgun", ItemsConfigManager.Shotgun.Value},
         {"Ammo", ItemsConfigManager.ShotgunShells.Value},
+        {"Shell", ItemsConfigManager.ShotgunShells.Value},
 
         {"Key", ItemsConfigManager.Keys.Value},
 
