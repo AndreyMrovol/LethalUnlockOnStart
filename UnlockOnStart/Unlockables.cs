@@ -48,6 +48,8 @@ namespace UnlockOnStart
         {"Shotgun", ItemsConfigManager.Shotgun.Value},
         {"Ammo", ItemsConfigManager.ShotgunShells.Value},
 
+        {"Key", ItemsConfigManager.Keys.Value},
+
         {"Jetpack", ItemsConfigManager.Jetpacks.Value},
         {"TZP-Inhalant", ItemsConfigManager.Inhalants.Value},
         {"Boombox", ItemsConfigManager.Boombox.Value}
@@ -56,7 +58,6 @@ namespace UnlockOnStart
     public static string[] ItemsToIgnore = [
       "Binoculars",
       "box",
-      "Key",
       "Bunkbeds",
       "Terminal",
       "Cupboard",

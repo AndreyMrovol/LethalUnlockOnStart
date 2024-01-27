@@ -35,6 +35,8 @@ public class ItemsConfigManager
   public static ConfigEntry<int> Shotgun { get; private set; }
   public static ConfigEntry<int> ShotgunShells { get; private set; }
 
+  public static ConfigEntry<int> Keys { get; private set; }
+
 
   private ItemsConfigManager(ConfigFile config)
   {
@@ -43,6 +45,7 @@ public class ItemsConfigManager
     Flashlights = config.Bind("Items", "Flashlight", 0, "How many flashlights to unlock on new save.");
     Inhalants = config.Bind("Items", "TZP-Inhalant", 0, "How many inhalants to unlock on new save.");
     Jetpacks = config.Bind("Items", "Jetpack", 0, "How many jetpacks to unlock on new save.");
+    Keys = config.Bind("Items", "Key", 0, "How many keys to unlock on new save.");
     LockPickers = config.Bind("Items", "Lockpicker", 0, "How many lockpickers to unlock on new save.");
     ProFlashlights = config.Bind("Items", "Pro-flashlight", 0, "How many pro-flashlights to unlock on new save.");
     RadarBoosters = config.Bind("Items", "Radar Booster", 0, "How many radar boosters to unlock on new save.");
