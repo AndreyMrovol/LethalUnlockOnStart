@@ -64,8 +64,8 @@ namespace UnlockOnStart
 
     internal static void SpawnItemsFromConfig()
     {
-
       List<Item> allItemsList = StartOfRound.Instance.allItemsList.itemsList;
+      List<string> itemsDeduped = allItemsList.Select(x => x.itemName).Distinct().ToList();
 
       foreach (Item item in allItemsList)
       {
@@ -77,7 +77,7 @@ namespace UnlockOnStart
         Plugin.logger.LogDebug($"Item ID: {itemID} / Item name: {itemName} / Is scrap: {item.isScrap}");
         Plugin.logger.LogDebug($"Is in dictionary: {isInItemsDictionary}");
 
-
+        if(!itemsDeduped.Contains(itemName)) continue;
         if (item.isScrap && !isInItemsDictionary) continue;
         if (Unlockables.ItemsToIgnore.Contains(itemName)) continue;
 
@@ -116,7 +116,7 @@ namespace UnlockOnStart
 
         }
 
-
+        itemsDeduped.Remove(itemName);
       }
     }
 
