@@ -16,11 +16,14 @@ namespace UnlockOnStart
       {"Green suit", DecorationsConfigManager.GreenSuit.Value},
       {"Hazard suit", DecorationsConfigManager.HazardSuit.Value},
       {"Pajama suit", DecorationsConfigManager.PajamaSuit.Value},
-      {"Purple Suit", DecorationsConfigManager.PurpleSuit.Value}
+      {"Purple Suit", DecorationsConfigManager.PurpleSuit.Value},
+      {"Bee Suit", DecorationsConfigManager.BeeSuit.Value},
+      {"Bunny Suit", DecorationsConfigManager.BunnySuit.Value}
     };
 
     public static Dictionary<string, bool> DecorationDictionary = new(){
       {"Cozy lights", DecorationsConfigManager.CozyLights.Value},
+      {"Disco Ball", DecorationsConfigManager.DiscoBall.Value},
       {"Television", DecorationsConfigManager.Television.Value},
       {"Toilet", DecorationsConfigManager.Toilet.Value},
       {"Shower", DecorationsConfigManager.Shower.Value},

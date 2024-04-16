@@ -26,15 +26,19 @@ public class DecorationsConfigManager
   public static ConfigEntry<bool> WelcomeMat { get; private set; }
   public static ConfigEntry<bool> Goldfish { get; private set; }
   public static ConfigEntry<bool> PlushiePajama { get; private set; }
+  public static ConfigEntry<bool> DiscoBall { get; private set; }
 
   public static ConfigEntry<bool> HazardSuit { get; private set; }
   public static ConfigEntry<bool> GreenSuit { get; private set; }
   public static ConfigEntry<bool> PajamaSuit { get; private set; }
   public static ConfigEntry<bool> PurpleSuit { get; private set; }
+public static ConfigEntry<bool> BeeSuit { get; private set; }
+public static ConfigEntry<bool> BunnySuit { get; private set; }
 
   private DecorationsConfigManager(ConfigFile config)
   {
     CozyLights = config.Bind("Decorations", "Cozy Lights", false, "Unlock the cozy lights on new save.");
+    DiscoBall = config.Bind("Decorations", "Disco Ball", false, "Unlock the disco ball on new save.");
     Goldfish = config.Bind("Decorations", "Goldfish", false, "Unlock the goldfish on new save.");
     JackOLantern = config.Bind("Decorations", "Jack-O-Lantern", false, "Unlock the jack-o-lantern on new save.");
     PlushiePajama = config.Bind("Decorations", "Plushie Pajama", false, "Unlock the plushie pajama on new save.");
@@ -50,6 +54,8 @@ public class DecorationsConfigManager
     GreenSuit = config.Bind("Suits", "Green Suit", false, "Unlock the green suit on new save.");
     PajamaSuit = config.Bind("Suits", "Pajama Suit", false, "Unlock the pajama suit on new save.");
     PurpleSuit = config.Bind("Suits", "Purple Suit", false, "Unlock the purple suit on new save.");
+    BeeSuit = config.Bind("Suits", "Bee Suit", false, "Unlock the bee suit on new save.");
+    BunnySuit = config.Bind("Suits", "Bunny Suit", false, "Unlock the bunny suit on new save.");
   }
 
 }
